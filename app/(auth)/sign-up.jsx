@@ -16,13 +16,13 @@ const SignUp = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
-        <View className="w-full justify-center min-h-[85vh]: px-4 my-6">
+        <View className="w-full justify-center min-h-[85vh] px-4 my-6">
           <Image
             source={images.logo}
             resizeMode="contain"
-            className="w-[115px] h-full px-4 my-6"
+            className="w-[115px] px-4 my-6"
           />
-          <Text className="text-2xl text-white font-semibold mt-10 font-psemibold">
+          <Text className="text-2xl text-white font-semibold mt-2 font-psemibold">
             Signup to Aora
           </Text>
           <FormField
