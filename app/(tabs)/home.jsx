@@ -4,6 +4,7 @@ import { images } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SearchInput from "../../components/SearchInput";
 import Trending from "../../components/Trending";
+import EmptyState from "../../components/EmptyState";
 
 const Header = () => {
   return (
@@ -35,11 +36,18 @@ const Header = () => {
 const Home = () => {
   return (
     <SafeAreaView className=" bg-primary">
+      {/* the reason we are using the flatlist instead of the scrollView is because the flatlist supports both vertical and horizontal list unlike scrollView which don't support vertical and horizontal view at the same time.  */}
       <FlatList
         data={[{ id: 1 }, { id: 2 }, { id: 3 }]}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => <Text className="text-3xl"> {item.id} </Text>}
         ListHeaderComponent={Header}
+        ListEmptyComponent={() => (
+          <EmptyState
+            title={"No Video Found"}
+            subtitle={"No Video Created yet"}
+          />
+        )}
       />
     </SafeAreaView>
   );
