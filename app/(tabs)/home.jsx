@@ -21,7 +21,7 @@ const Header = () => {
           resizeMode="contain"
         />
       </View>
-      <SearchInput placeholder={"Search for a video topic"} />
+      <SearchInput />
       <View className="w-full flex-1 pt-5 pb-8">
         <Text className="text-gray-100 text-lg font-pregular mb-3">
           Trending Videos
@@ -35,10 +35,10 @@ const Header = () => {
 const Home = () => {
   return (
     <SafeAreaView className=" bg-primary">
-      <FlatListquestion
+      <FlatList
         data={[{ id: 1 }, { id: 2 }, { id: 3 }]}
         keyExtractor={(item) => item.$id}
-        renderItem={({ item }) => <Text className="text-3xl">{item.id} </Text>}
+        renderItem={({ item }) => <Text className="text-3xl"> {item.id} </Text>}
         ListHeaderComponent={Header}
       />
     </SafeAreaView>

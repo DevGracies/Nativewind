@@ -1,11 +1,10 @@
 import { View, Text, ScrollView, Image } from "react-native";
 import React from "react";
-import "react-native-url-polyfill/auto";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import images from "../constants/images";
 import Button from "../components/Button";
-import { router, Redirect } from "expo-router";
+import { router } from "expo-router";
 const index = () => {
   return (
     <SafeAreaView className="bg-primary h-full">

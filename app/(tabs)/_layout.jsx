@@ -1,10 +1,8 @@
 import { Tabs, Redirect } from "expo-router";
 import React from "react";
-import { TabBarIcon } from "@/components/navigation/TabBarIcon";
-import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
 import { icons } from "../../constants";
 import { View, Image, Text } from "react-native";
+
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
     <View className=" items-center justify-center gap-2">
