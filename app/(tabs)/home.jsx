@@ -1,10 +1,11 @@
 import { View, Text, FlatList, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { images } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SearchInput from "../../components/SearchInput";
 import Trending from "../../components/Trending";
 import EmptyState from "../../components/EmptyState";
+import RefreshControl from "../../components/RefreshControl";
 
 const Header = () => {
   return (
@@ -34,8 +35,15 @@ const Header = () => {
   );
 };
 const Home = () => {
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = async () => {
+    setRefreshing(true);
+    // recall videos
+    setRefreshing(false);
+  };
   return (
-    <SafeAreaView className=" bg-primary">
+    <SafeAreaView className=" bg-primary h-full">
+      {/* if you are struggling with positioning you can add styling using border-2 bordercolor  */}
       {/* the reason we are using the flatlist instead of the scrollView is because the flatlist supports both vertical and horizontal list unlike scrollView which don't support vertical and horizontal view at the same time.  */}
       <FlatList
         data={[{ id: 1 }, { id: 2 }, { id: 3 }]}
@@ -48,6 +56,10 @@ const Home = () => {
             subtitle={"No Video Created yet"}
           />
         )}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          // just like instagram, tiktok
+        }
       />
     </SafeAreaView>
   );
